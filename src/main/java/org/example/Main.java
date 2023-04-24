@@ -1,37 +1,25 @@
 package org.example;
 import java.sql.*;
 import java.util.Arrays;
-
 public class Main {
-    public static void main(String[] args){
-        try(Connection connection=DriverManager.getConnection ("jdbc:mysql://127.0.0.1/new_schema","root","root")) {
-            Statement stat=connection.createStatement();
-            String sqlCommand = "CREATE TABLE animal"+("id INTEGER not NULL,"+"name VARCHAR (255),"+"kind VARCHAR(255),"+"age INTEGER,"+"PRIMARY KEY(id)");
-            String name="'asdf','Riba',20);drop table animal;";
-            String insertCommand="INSERT INTO animal(id,name,kind,age) VALUES(1,'+name+','Riba',20);";
-            int i=stat.executeUpdate(sqlCommand);
-            System.out.println("Успешно применена"+i+"строка");
-            String selectCommand="SELECT FROM animal";
-            ResultSet resultSet=stat.executeQuery(selectCommand);
-            System.out.println(resultSet.toString());
-            int num=0;
-            while (resultSet.next()){
-                System.out.println(resultSet.getString(1)+" ");
-                System.out.println(resultSet.getString(2)+" ");
-                System.out.println(resultSet.getString(3)+" ");
-                System.out.println(resultSet.getString(4)+" ");
-                System.out.println(resultSet.next());
-            }
-            connection.setAutoCommit(false);
-            stat.execute("DELETE FROM animal WHERE kind='Riba';");
-            System.out.println("Выполение удаления");
-            stat.execute("ADASdasdasd");
-            connection.commit();
-            System.out.println("Удаление успешно");
-        } catch (SQLException e) {
-            System.out.println("Удаление отменено");
+    public static void main(String[] args) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/new_schema", "root", "P1i9l8a2")) {
+            Statement stmt = connection.createStatement();
+//            String sqlCommand = "CREATE TABLE studenty" +
+//                    "(id INTEGER not NULL, " +
+//                    " name VARCHAR(255), " +
+//                    " pol VARCHAR(255), " +
+//                    " age INTEGER, " + "nomer INTEGER," +
+//                    " PRIMARY KEY ( id ))";
+//            stmt.executeUpdate(sqlCommand);
+//            String insertCommand = "INSERT INTO studenty(id, name, pol, age, nomer) VALUES (10,'pila','W',20,3323);";
+//            int i = stmt.executeUpdate(insertCommand);
+//            System.out.println("Успешно применена " + i + " строка");
+            String selectCommand = "SELECT * FROM animal ;";
+            ResultSet resultSet = stmt.executeQuery(selectCommand);
+//            System.out.println(resultSet.toString());
+        }catch (SQLException e) {
             e.printStackTrace();
-
         }
     }
 }
