@@ -1,6 +1,5 @@
 package org.example;
 import java.sql.*;
-import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1/new_schema", "root", "P1i9l8a2")) {
